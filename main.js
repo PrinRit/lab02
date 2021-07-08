@@ -13,6 +13,13 @@ const app = Vue.createApp({
         },
         updateQuan(){
             this.quan +=1
+        },
+        DeleteCart(id){
+            this.cart.splice(this.cart.id)
+            this.quan -=1
+            if (this.quan<0) {
+                this.quan=0
+            }
         }
     }
 })

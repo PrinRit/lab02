@@ -16,7 +16,7 @@
 
         <div class="cart">Cart({{ cart }}) : Quantity({{ quan }})</div>
 
-        <product-display :premium="premium" @add-to-cart="updateCart" @add-to-quan="updateQuan"></product-display>
+        <product-display :premium="premium" @add-to-cart="updateCart" @add-to-quan="updateQuan"  @rermove-cart="DeleteCart"></product-display>
         
     </div>
 

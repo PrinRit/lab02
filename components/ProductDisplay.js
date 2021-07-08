@@ -19,7 +19,7 @@ app.component('product-display',{
                     <p v-if="inStock">In Stock</p>
                     <p v-else>Out of Stock</p>
                     <p>Shipping: {{shipping}}</p>
-                    
+
                     <product-details>{{indetail}}</product-details>
 
                     <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color}"></div>
@@ -41,6 +41,9 @@ app.component('product-display',{
         }
     },
     methods: {
+        addToCart(){
+            this.$emit('add-to-cart')
+        },
         updateImage(variantImage) {
             this.image = variantImage
         },

@@ -3,8 +3,8 @@ const app = Vue.createApp({
         return {
             product: 'Shoes',
             brand: 'SE 331',
-            image: './assets/images/socks_green.jpg',
-            inStock: true,
+            //image: './assets/images/socks_green.jpg',
+            //inStock: true,
             inventory: 100,
             details: ['50% cotton', '30% wool', '20% polyester'],
             variants: [

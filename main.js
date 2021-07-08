@@ -2,6 +2,7 @@ const app = Vue.createApp({
     data() {
         return {
             cart: [],
+            quan:0,
             premium: true
 
         }
@@ -9,6 +10,9 @@ const app = Vue.createApp({
     methods:{
         updateCart(id){
             this.cart.push(id)
+        },
+        updateQuan(){
+            this.quan +=1
         }
     }
 })

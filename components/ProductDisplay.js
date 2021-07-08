@@ -1,4 +1,10 @@
 app.component('product-display',{
+    props:{
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     template:
         /*html*/    
         `<div class="product-display">
@@ -12,7 +18,7 @@ app.component('product-display',{
 
                     <p v-if="inStock">In Stock</p>
                     <p v-else>Out of Stock</p>
-                    
+                    <p>Shipping: {{shipping}}</p>
 
                     <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color}"></div>
                     <button class=" button " :disabled='!inStock' :class="{disabledButton: !inStock}" @click="addToCart">Add to Cart</button>
@@ -30,7 +36,6 @@ app.component('product-display',{
                 { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 }
             ],
             selectedVariant: 0,
-            cart: 0,
         }
     },
     methods: {
@@ -53,6 +58,12 @@ app.component('product-display',{
         },
         inStock() {
             return this.variants[this.selectedVariant].quantity
+        },
+        shipping() {
+            if (this.premium) {
+                return 'Free'
+            }
+            return 30
         }
     }
 })

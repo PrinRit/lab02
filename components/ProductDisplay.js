@@ -28,6 +28,7 @@ app.component('product-display',{
                     <button class=" button " :disabled='!inStock' :class="{disabledButton: !inStock}" @click="removeCart">Remove Cart</button>
                 </div>
             </div>
+            <review-form></review-form>
         </div>`
     ,data() {
         return {
@@ -86,8 +87,8 @@ app.component('product-details',{
     /*html*/
     `<ul>
         <li v-for="detail in details">{{ detail }}</li>
-    </ul>`,
-    data() {
+    </ul>`
+    ,data() {
         return{
             details: ['50% cotton', '30% wool', '20% polyester']
         }

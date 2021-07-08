@@ -19,6 +19,8 @@ app.component('product-display',{
                     <p v-if="inStock">In Stock</p>
                     <p v-else>Out of Stock</p>
                     <p>Shipping: {{shipping}}</p>
+                    
+                    <product-details>{{indetail}}</product-details>
 
                     <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color}"></div>
                     <button class=" button " :disabled='!inStock' :class="{disabledButton: !inStock}" @click="addToCart">Add to Cart</button>
@@ -39,9 +41,6 @@ app.component('product-display',{
         }
     },
     methods: {
-        addToCart() {
-            this.cart += 1
-        },
         updateImage(variantImage) {
             this.image = variantImage
         },
@@ -64,6 +63,24 @@ app.component('product-display',{
                 return 'Free'
             }
             return 30
+        }
+    }
+})
+
+app.component('product-details',{
+    props:{
+        indetail:{
+            type : String
+        }
+    },
+    template:
+    /*html*/
+    `<ul>
+        <li v-for="detail in details">{{ detail }}</li>
+    </ul>`,
+    data() {
+        return{
+            details: ['50% cotton', '30% wool', '20% polyester']
         }
     }
 })

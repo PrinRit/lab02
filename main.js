@@ -12,7 +12,8 @@ const app = Vue.createApp({
                 { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 }
             ],
             selectedVariant: 0,
-            cart: 0
+            cart: 0,
+            onSale: true
 
         }
     },
@@ -36,6 +37,12 @@ const app = Vue.createApp({
         },
         inStock() {
             return this.variants[this.selectedVariant].quantity
+        },
+        ThisonSale() {
+            return this.brand +' '+ this.product +' '+'is on sale'
+        },
+        ThisnotonSale() {
+            return this.brand +' '+ this.product +' '+'is not on sale'
         }
     }
 })
